@@ -11,11 +11,8 @@ node_modules/
 dist/
 .vite/
 
-# TanStack Router (auto-generated)
-frontend/src/routeTree.gen.ts
-
-# orval (auto-generated)
-frontend/src/api/generated/
+# orval・TanStack Router の生成ファイルはコミット対象
+# （Docker ビルド時に backend が不在なので生成できないため）
 
 # IDE
 .vscode/
