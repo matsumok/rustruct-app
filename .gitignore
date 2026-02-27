@@ -1,0 +1,31 @@
+# Environment
+.env
+.env.local
+
+# Rust
+target/
+**/*.rs.bk
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# TanStack Router (auto-generated)
+frontend/src/routeTree.gen.ts
+
+# orval (auto-generated)
+frontend/src/api/generated/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
