@@ -3,6 +3,7 @@ mod entity;
 
 use axum::{routing::get, Router};
 use dotenvy::dotenv;
+use migration::{Migrator, MigratorTrait};
 use sea_orm::{Database, DatabaseConnection};
 use std::env;
 use tower_http::cors::{Any, CorsLayer};
@@ -51,6 +52,12 @@ async fn main() {
         .expect("Failed to connect to database");
 
     tracing::info!("Connected to database");
+
+    Migrator::up(&db, None)
+        .await
+        .expect("Failed to run migrations");
+
+    tracing::info!("Migrations applied");
 
     let state = AppState { db };
 
