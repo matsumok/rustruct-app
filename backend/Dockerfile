@@ -1,7 +1,7 @@
 # Stage 1: Build
-FROM rust:1.76-alpine AS builder
+FROM rust:alpine AS builder
 
-RUN apk add --no-cache musl-dev pkgconfig openssl-dev
+RUN apk add --no-cache musl-dev pkgconfig openssl-dev curl
 
 WORKDIR /app
 
