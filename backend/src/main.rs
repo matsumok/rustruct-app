@@ -1,4 +1,5 @@
 mod api;
+mod entity;
 
 use axum::{routing::get, Router};
 use dotenvy::dotenv;
@@ -17,9 +18,13 @@ pub struct AppState {
 #[openapi(
     paths(
         api::health::health_check,
+        api::projects::list_projects,
     ),
     components(
-        schemas(api::health::HealthResponse)
+        schemas(
+            api::health::HealthResponse,
+            api::projects::ProjectResponse,
+        )
     ),
     info(
         title = "Rustruct API",
@@ -57,6 +62,7 @@ async fn main() {
     let app = Router::new()
         .merge(SwaggerUi::new("/api/docs").url("/api/openapi.json", ApiDoc::openapi()))
         .route("/api/health", get(api::health::health_check))
+        .route("/api/projects", get(api::projects::list_projects))
         .layer(cors)
         .with_state(state);
 

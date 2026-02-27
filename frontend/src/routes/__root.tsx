@@ -24,6 +24,12 @@ function RootLayout() {
             >
               計算ツール
             </Link>
+            <Link
+              to="/projects"
+              className="transition-colors hover:text-foreground/80 [&.active]:text-foreground text-foreground/60"
+            >
+              プロジェクト
+            </Link>
           </nav>
         </div>
       </header>
