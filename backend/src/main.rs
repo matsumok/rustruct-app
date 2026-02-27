@@ -18,6 +18,9 @@ pub struct AppState {
     paths(
         api::health::health_check,
     ),
+    components(
+        schemas(api::health::HealthResponse)
+    ),
     info(
         title = "Rustruct API",
         description = "日本の建築構造設計向け計算ツール集",
